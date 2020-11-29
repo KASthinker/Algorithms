@@ -1,9 +1,7 @@
 #include "IntArray/IntArray.h"
 
 #include <iostream>
-#include <cassert>
 #include <chrono>
-#include <iomanip>
 
 class Timer
 {
@@ -28,16 +26,64 @@ std::ostream& operator<<(std::ostream &out, Timer &t) {
 }
 
 int main() {
-    const int length = 20;
+    const int length = 50000;
     IntArray array(length);
     array.randArray(0, 10000);
-    std::cout << array << "\n";
+    // std::cout << array << "\n";
 
     Timer t;
     array.BubbleSort();
-    std::cout << "Bubble sort with length = " << length << ". Runtime = "  << t << "\n";
+    std::cout << "BubbleSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
 
     array.shuffle();
-    
+    //std::cout << array << "\n";
+
+    t.reset();
+    array.ShakerSort();
+    std::cout << "ShakerSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
+    array.shuffle();
+    //std::cout << array << "\n";
+
+    t.reset();
+    array.CombSort();
+    std::cout << "CombSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
+    array.shuffle();
+    //std::cout << array << "\n";
+
+    t.reset();
+    array.InsertionSort();
+    std::cout << "InsertionSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
+    array.shuffle();
+    //std::cout << array << "\n";
+
+    t.reset();
+    array.SelectionSort();
+    std::cout << "SelectionSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
+    array.shuffle();
+    //std::cout << array << "\n";
+
+    t.reset();
+    array.QuickSort();
+    std::cout << "QuickSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
+    array.shuffle();
+    //std::cout << array << "\n";
+
+    t.reset();
+    array.MergeSort();
+    std::cout << "MergeSort with length = " << length << ". Runtime = "  << t << "\n";
+    //std::cout << array << "\n";
+
     return 0;
 }

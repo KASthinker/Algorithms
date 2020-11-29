@@ -22,14 +22,22 @@ void IntArray::randArray(int min, int max) {
     }
 }
 
+void IntArray::swap(int x, int y) {
+    int tmp = m_array[x];
+    m_array[x] = m_array[y];
+    m_array[y] = tmp;
+}
+
+void IntArray::swap(int *x, int *y) {
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+}
+
 void IntArray::shuffle() {
-    // Перебираем каждую карту в колоде
     for (int i = 0; i < m_length; i++)
     {
-        int swapIndex = rand() % (m_length-1);
-        int tmp = m_array[i];
-        m_array[i] = m_array[swapIndex];
-        m_array[swapIndex] = tmp;
+        swap(i, rand() % (m_length-1));
     }
 }
 
